@@ -15,6 +15,11 @@ class ShortUrl extends Model
         'user_id'
     ];
 
+    public function getShortUrlAttribute($value)
+    {
+        return env('APP_URL') . $value;
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
